@@ -1,4 +1,6 @@
 baseURL = 'https://fangfeixiong.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = '放飞熊的博客'
 theme = 'docport'
+author = 'fangfeixiong'
+description = '记录想说的'
