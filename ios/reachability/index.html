@@ -1,0 +1,225 @@
+<!doctype html><html>
+<head>
+<title>
+iOS判断是否连接网络 :: My New Hugo Site
+</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name=revised content="2021-09-07T07:28:50 UTC">
+<meta name=description content>
+<title>iOS判断是否连接网络 :: My New Hugo Site</title>
+<link rel="shortcut icon" href=/images/favicon.png type=image/x-icon>
+<link rel=stylesheet href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css integrity=sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z crossorigin=anonymous>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css>
+<script src=https://code.jquery.com/jquery-3.5.1.min.js></script>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel=stylesheet>
+<link rel=stylesheet type=text/css href=https://fangfeixiong.github.io/sass/layout.css>
+<link rel=stylesheet type=text/css href=https://fangfeixiong.github.io/css/style.main.css>
+<link rel=stylesheet type=text/css href=https://fangfeixiong.github.io/css/style.menu.css>
+<link rel=stylesheet type=text/css href=https://fangfeixiong.github.io/sass/shortcodes/notice.css>
+<link rel=stylesheet type=text/css href=https://fangfeixiong.github.io/sass/shortcodes/tabs.css>
+<link rel=stylesheet type=text/css href=https://fangfeixiong.github.io/sass/shortcodes/panel.css>
+<link rel=stylesheet type=text/css href=https://fangfeixiong.github.io/sass/shortcodes/columns.css>
+<link rel=stylesheet type=text/css href=https://fangfeixiong.github.io/sass/shortcodes/children.css>
+<link rel=stylesheet type=text/css href=https://fangfeixiong.github.io/sass/shortcodes/attachments.css>
+<link rel=stylesheet type=text/css href=https://fangfeixiong.github.io/sass/shortcodes/alert.css>
+<link rel=stylesheet type=text/css href=/css/docport.css>
+<script src=/js/docport.js></script>
+<script type=text/javascript>var baseurl="https://fangfeixiong.github.io/"</script>
+</head>
+<body data-url=/ios/reachability/>
+<style type=text/css>#debug{display:-webkit-box;display:-ms-flexbox;display:flex;line-height:3.5rem;margin-bottom:.35rem;padding:0 2rem;position:fixed;left:0;right:0;top:0;top:0;min-height:150px;background-color:#fff;border:3px solid red;z-index:10000;word-wrap:all;overflow:auto}</style>
+<header>
+<div>
+<div class="burger single">
+<a href=javascript:void(0); style=font-size:15px onclick="$('article > aside').toggleClass('responsive')">&#9776;</a>
+</div>
+<div>
+<a class=baselink href=https://fangfeixiong.github.io/>My New Hugo Site</a>
+</div>
+</div>
+</header>
+<article>
+<aside class=single>
+<div class=search>
+<div class=searchbox>
+<input data-search-input id=search-by type=text placeholder="Type to search...">
+</div>
+<script type=text/javascript src=/vendor/lunr/lunr.min.js></script>
+<script type=text/javascript src=/vendor/auto-complete/auto-complete.js></script>
+<link href=/vendor/auto-complete/auto-complete.css rel=stylesheet>
+<script type=text/javascript>var baseurl="https://fangfeixiong.github.io/"</script>
+<script type=text/javascript src=/js/search.js></script>
+</div>
+<div id=close_menu>
+<a href=javascript:void(0); style=font-size:15px onclick="$('article > aside').toggleClass('responsive')">
+<i class="fa fa-lg fa-times"></i>
+</a>
+</div>
+<ul class=menu>
+<li data-nav-id=https://fangfeixiong.github.io/weixin-mini/ class="dd-item haschildren
+item_level_$level">
+<i class="fas fa-chevron-right ddexp"></i>
+<a href=/weixin-mini/>Weixin-minis</a>
+<ul>
+<li data-nav-id=https://fangfeixiong.github.io/weixin-mini/tips_2/ class="dd-item
+item_level_$level">
+<a href=/weixin-mini/tips_2/>微信小程序开发Tips_2</a>
+</li>
+<li data-nav-id=https://fangfeixiong.github.io/weixin-mini/tips_1/ class="dd-item
+item_level_$level">
+<a href=/weixin-mini/tips_1/>微信小程序开发Tips_1</a>
+</li>
+</ul>
+</li>
+<li data-nav-id=https://fangfeixiong.github.io/ios/ class="dd-item parent haschildren
+item_level_$level">
+<i class="fas fa-chevron-down ddexp"></i>
+<a href=/ios/>IOS</a>
+<ul>
+<li data-nav-id=https://fangfeixiong.github.io/ios/fmdb-use/ class="dd-item
+item_level_$level">
+<a href=/ios/fmdb-use/>FMDB的使用</a>
+</li>
+<li data-nav-id=https://fangfeixiong.github.io/ios/privacy/ class="dd-item
+item_level_$level">
+<a href=/ios/privacy/>iOS 隐私使用说明（Privacy Usage Description）</a>
+</li>
+<li data-nav-id=https://fangfeixiong.github.io/ios/reachability/ class="dd-item parent active
+item_level_$level">
+<a href=/ios/reachability/>iOS判断是否连接网络</a>
+</li>
+<li data-nav-id=https://fangfeixiong.github.io/ios/doubleclick-input-scalechange/ class="dd-item
+item_level_$level">
+<a href=/ios/doubleclick-input-scalechange/>WKWebView 禁用双击缩放和横向滚动</a>
+</li>
+<li data-nav-id=https://fangfeixiong.github.io/ios/is-ipad/ class="dd-item
+item_level_$level">
+<a href=/ios/is-ipad/>判断当前设备是否是iPad</a>
+</li>
+<li data-nav-id=https://fangfeixiong.github.io/ios/in-app-purchase/ class="dd-item
+item_level_$level">
+<a href=/ios/in-app-purchase/>苹果内购流程</a>
+</li>
+<li data-nav-id=https://fangfeixiong.github.io/ios/visitor-can-recharge/ class="dd-item
+item_level_$level">
+<a href=/ios/visitor-can-recharge/>苹果审核，关于未登录时购买内容，引导登录时需要提供游客充值的入口</a>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<section class="page single">
+<nav id=ariane aria-label=breadcrumb>
+<ol class=ariane>
+<li>
+<a class=text-link href=https://fangfeixiong.github.io/>
+Home
+</a>
+</li>
+<li>
+<a class=text-link href=/ios/>
+IOS
+</a>
+</li>
+<li class=active>
+iOS判断是否连接网络
+</li>
+</ol>
+</nav>
+<h1>iOS判断是否连接网络</h1>
+<div class=jump-to-section>
+<span onclick="$h=$(this),$h.next('nav').slideToggle(100,function(){$h.children('i').attr('class',function(){return $h.next('nav').is(':visible')?'fas fa-chevron-down':'fas fa-chevron-right'})})">
+<span class="fas fa-align-right"></span>
+Jump to Section
+<i class="fas fa-chevron-right"></i>
+</span>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<div class=content>
+<ul>
+<li>content
+{:toc}</li>
+</ul>
+<h4 ref=遇到的问题>遇到的问题</h4><a class=anchor id=遇到的问题></a>
+<ol>
+<li>
+<p>iOS10 以上的系统，第一次下载一个app的时候会出现这样一个问题。当用户还没有选择是否允许使用wifi和蜂窝网络的时候，如果这时候已经进入app的主界面，那么就会所有的数据访问失败，导致界面一片空白，没有任何数据。这时如果用户选择了允许访问wifi和蜂窝网络后，没有一个像允许通知的api，来通知app网络已经连接上了。</p>
+</li>
+<li>
+<p>为了解决这个问题，我们需要自己来监听网络环境是否有变化，如果监听到变化了，知道网络已经连接上，这时重新请求数据就能够获取到了，然后将app的主界面填充起来！</p>
+</li>
+<li>
+<p>监听网络环境的iOS没有现有的Api供调用，但是苹果官方有个Demo里面有一个对应的类Reachability <a href=https://developer.apple.com/library/content/samplecode/Reachability/Introduction/Intro.html>获取项目</a></p>
+</li>
+<li>
+<p>为了方便调用，我自己做了一个封装类 <a href=https://github.com/PlayLive/Practice/tree/master/Reachability>封装类地址</a></p>
+</li>
+</ol>
+<h4 ref=调用方式>调用方式</h4><a class=anchor id=调用方式></a>
+<p>{% highlight objective_c %}</p>
+<p>[[ReachabilityManager Instance] setHostName:&ldquo;www.apple.com&rdquo; complete:^{
+if([[ReachabilityManager Instance] canReachHttp])
+{
+<a href>请求你自己的数据</a>;
+[[ReachabilityManager Instance] stop];
+}
+}];
+if([[ReachabilityManager Instance] canReachHttp])
+{
+<a href>请求你自己的数据</a>;
+[[ReachabilityManager Instance] stop];
+}else
+{
+[[ReachabilityManager Instance] start];
+}
+{% endhighlight %}</p>
+</div>
+<div class=chevrons>
+<a class=next href=/ios/doubleclick-input-scalechange/ title="WKWebView 禁用双击缩放和横向滚动" style=margin-right:0>
+<div>
+<p>Next page</p>
+<label>WKWebView 禁用双击缩放和横向滚动</label>
+</div>
+<i class="fas fa-arrow-right" style=font-size:1.7em></i></a>
+</div>
+</section>
+<section class="right-menu single">
+<div class=TableOfContents>
+<label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What's on this page</label>
+<nav>
+<ul>
+<li><a href=/ios/reachability/>iOS判断是否连接网络</a></li>
+</ul>
+</nav>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<div class=Actions>
+<nav>
+<ul>
+</ul>
+</nav>
+</div>
+</section>
+</article>
+<footer>
+Create a content/_layout/footer/_index.md file to customize the footer content !
+</footer>
+</body>
+</html>
